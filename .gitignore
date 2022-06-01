@@ -1,0 +1,18 @@
+# Wii images
+*.iso
+*.wdf
+*.wia
+*.ciso
+*.wbi
+*.wbfs
+*.gcz
+
+# Riibalanced Patch Files
+/V5
+
+# Generated directories
+/RMCE01
+
+# Other possible binaries that might be lurking 
+*.zip
+*.7z
