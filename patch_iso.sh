@@ -27,7 +27,7 @@ if [[ ! -d "./V5/" ]]; then
   exit 3;
 fi
 
-# check if correct programs are installed ----------------------------------------
+# check if correct programs are installed ---------------------------------------
 
 # curl ------
 type curl
@@ -93,7 +93,7 @@ if [[ ERROR -ne 0 ]]; then
   fi
 fi
 
-# check for image ------------------------------------------------
+# check for image ---------------------------------------------------------------
 
 if [[ ! $1 ]]; then
   echo "ERROR: Please start this script with the path to the Mario Kart Wii ISO image to start the patch."
@@ -101,7 +101,7 @@ if [[ ! $1 ]]; then
   exit 0
 fi
 
-# check for previous image extraction -----------------------------------
+# check for previous image extraction -------------------------------------------
 
 if [[ -d "./RMCE01/" ]]; then
   echo "The output directory for the image extraction exists (./RMCE01) and will be DELETED to get a fresh extraction."
@@ -110,7 +110,7 @@ if [[ -d "./RMCE01/" ]]; then
   rm -rf ./RMCE01
 fi
 
-# start extract -----------------------------------------------------------
+# start extract -----------------------------------------------------------------
 
 wit extract $1 RMCE01
 ERROR="$?"
@@ -120,9 +120,9 @@ if [[ ERROR -ne 0 ]]; then
   exit $ERROR
 fi
 
-# start patch -------------------------------------------------------------
+# start patch -------------------------------------------------------------------
 
-echo "Extraction seems to be complete. Starting patch."
+echo "Extraction seems to be complete. Patching..."
 #set -x
 
 cp V5/Riibalanced/Core/StaticRU.rel RMCE01/DATA/files/rel/StaticR.rel
@@ -267,7 +267,7 @@ cp V5/Riibalanced/Music/STRM_N_FACTORY_N.brstm RMCE01/DATA/files/sound/strm/
 echo
 echo "Patch complete. wit will now compile the resulting disc image."
 
-# overwrite check ------------------------------------------------------
+# overwrite check ---------------------------------------------------------------
 
 if [[ -f "./riibalanced.wbfs" ]]; then
   echo "The file 'riibalanced.wbfs' exists in this directory."
@@ -282,7 +282,7 @@ if [[ -f "./riibalanced.wbfs" ]]; then
   done
 fi
 
-# build ----------------------------------------------------------------
+# build -------------------------------------------------------------------------
 
 wit mix RMCE01/ -B --dest riibalanced.wbfs
 wit edit riibalanced.wbfs --name MarioKartRiibalanced
