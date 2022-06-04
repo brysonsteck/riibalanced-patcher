@@ -14,7 +14,7 @@ You need three things before starting:
 3. The Riibalanced Patch Archive (This can be downloaded via the Riibalanced Discord Server)
 
 After that, clone the repository and run the script:
-```
+```bash
 git clone https://github.com/brysonsteck/riibalanced-patcher.git
 cd riibalanced-patcher
 ./patch_iso.sh

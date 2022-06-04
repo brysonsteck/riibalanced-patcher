@@ -98,7 +98,14 @@ fi
 if [[ ! $1 ]]; then
   echo "ERROR: Please start this script with the path to the Mario Kart Wii ISO image to start the patch."
   echo "example: ./patch_iso.sh image/RMCE01.wbfs"
-  exit 0
+  exit 7
+fi
+
+# check if image exists ---------------------------------------------------------
+
+if [[ ! -f "$1" ]]; then
+  echo "ERROR: The file specified does not exist."
+  exit 8
 fi
 
 # check for previous image extraction -------------------------------------------
@@ -116,7 +123,7 @@ wit extract $1 RMCE01
 ERROR="$?"
 
 if [[ ERROR -ne 0 ]]; then 
-  echo "ERROR: wit has returned non-zero exit code $ERROR. Please check that your image is in the specified location and the image is authentic and valid."
+  echo "ERROR: wit has returned non-zero exit code $ERROR. Please check that your disc image is authentic and valid."
   exit $ERROR
 fi
 
