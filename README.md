@@ -8,12 +8,16 @@ You need three things before starting:
 
 1. A computer system running:
   * Linux/BSD with `bash` installed
-  * ~~macOS~~ Not implemented yet
+  * macOS
   * ~~Windows with [Cygwin](https://www.cygwin.com/)~~ (Not Implemented) or [WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
 1. A Mario Kart Wii image in ISO, WBFS, WDF, WIA, CISO, WBI, or GCZ format. (Obtained legally, of course)
 1. The Riibalanced Patch Archive (This can be downloaded via the Riibalanced Discord Server)
 
-After that, the script will guide you on what you need to do in order for the pather to work correctly.
+After that, run the following command:
+```
+./patch_iso.sh
+```
+The script will guide you on what you need to do in order for the pather to work correctly.
 
 ## Current Issues with the Patcher
 
