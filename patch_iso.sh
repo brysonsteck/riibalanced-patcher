@@ -40,6 +40,7 @@ if [[ ERROR -ne 0 ]]; then
     echo "Try running 'xcode-select --install'."
   else
     echo "Please consult your system's package manager."
+  fi
   exit 0
 fi
 
