@@ -78,8 +78,12 @@ if [[ ERROR -ne 0 ]]; then
   fi
   tar -xvf wit.tar.gz
   cd wit-v*/
-  echo "You will now be prompted to enter your password for sudo in order for wit to install."
-  sudo ./install.sh
+  if [[ $(id -u) == 0 ]]; then
+    ./install.sh
+  else 
+    echo "You will now be prompted to enter your password for sudo in order for wit to install."
+    sudo ./install.sh
+  fi 
   cd ..
   rm -rf wit-v*/
   # check if wit is installed now
