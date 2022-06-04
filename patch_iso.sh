@@ -60,7 +60,7 @@ if [[ ERROR -ne 0 ]]; then
     printf "Would you like to install wit? [y/n] "
   done
   arch=$(uname -m)
-  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  if [[ "$OSTYPE" == "linux"* ]]; then
     if [[ $arch == x86_64* ]]; then
       curl https://wit.wiimm.de/download/wit-v3.04a-r8427-x86_64.tar.gz > wit.tar.gz
     elif [[ $arch == i*86 ]]; then
