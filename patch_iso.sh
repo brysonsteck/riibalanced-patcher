@@ -63,20 +63,20 @@ if [[ ERROR -ne 0 ]]; then
     else
       echo "ERROR: Your system's architecture ($arch) does not support Wiimm's ISO Tools. Please refer to wit's website for more information on how to install the tools. https://wit.wiimm.de/"
     fi
-    tar -xvf wit.tar.gz
-    cd wit-v*/
-    echo "You will now be prompted to enter your password for sudo in order for wit to install."
-    sudo ./install.sh
-    cd ..
-    rm -rf wit-v*/
   elif [[ "$OSTYPE" == "darwin"* ]]; then
-    break
+    wget https://wit.wiimm.de/download/wit-v3.04a-r8427-mac.tar.gz -O wit.tar.gz
   elif [[ "$OSTYPE" == "cygwin" ]]; then
     break
   else
     echo "Riibalanced Patcher: Your operating system ($OSTYPE) does not support Wiimm's ISO Tools. Please refer to wit's website for more information on how to install the tools. https://wit.wiimm.de/"
     exit 2;
   fi
+  tar -xvf wit.tar.gz
+  cd wit-v*/
+  echo "You will now be prompted to enter your password for sudo in order for wit to install."
+  sudo ./install.sh
+  cd ..
+  rm -rf wit-v*/
   # check if wit is installed now
   type wit
   ERROR="$?"
