@@ -29,13 +29,17 @@ fi
 
 # check if correct programs are installed ----------------------------------------
 
-# wget ------
-type wget
+# curl ------
+type curl
 ERROR="$?"
 
 if [[ ERROR -ne 0 ]]; then 
   echo
-  echo "You must install 'wget' in order for this script to work correctly. Please consult your system's package manager."
+  echo "You must install 'curl' in order for this script to work correctly."
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "Try running 'xcode-select --install'."
+  else
+    echo "Please consult your system's package manager."
   exit 0
 fi
 
@@ -57,14 +61,14 @@ if [[ ERROR -ne 0 ]]; then
   arch=$(uname -m)
   if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if [[ $arch == x86_64* ]]; then
-      wget https://wit.wiimm.de/download/wit-v3.04a-r8427-x86_64.tar.gz -O wit.tar.gz
+      curl https://wit.wiimm.de/download/wit-v3.04a-r8427-x86_64.tar.gz > wit.tar.gz
     elif [[ $arch == i*86 ]]; then
-      wget https://wit.wiimm.de/download/wit-v3.04a-r8427-i386.tar.gz -O wit.tar.gz
+      curl https://wit.wiimm.de/download/wit-v3.04a-r8427-i386.tar.gz > wit.tar.gz
     else
       echo "ERROR: Your system's architecture ($arch) does not support Wiimm's ISO Tools. Please refer to wit's website for more information on how to install the tools. https://wit.wiimm.de/"
     fi
   elif [[ "$OSTYPE" == "darwin"* ]]; then
-    wget https://wit.wiimm.de/download/wit-v3.04a-r8427-mac.tar.gz -O wit.tar.gz
+    curl https://wit.wiimm.de/download/wit-v3.04a-r8427-mac.tar.gz > wit.tar.gz
   elif [[ "$OSTYPE" == "cygwin" ]]; then
     break
   else
