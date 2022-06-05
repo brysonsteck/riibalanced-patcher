@@ -71,19 +71,35 @@ if [[ ERROR -ne 0 ]]; then
   elif [[ "$OSTYPE" == "darwin"* ]]; then
     curl https://wit.wiimm.de/download/wit-v3.04a-r8427-mac.tar.gz > wit.tar.gz
   elif [[ "$OSTYPE" == "cygwin" ]]; then
-    break
+    if [[ $arch == x86_64* ]]; then
+      curl https://wit.wiimm.de/download/wit-v3.04a-r8427-cygwin64.zip > wit.tar.gz
+    elif [[ $arch == i*86 ]]; then
+      curl https://wit.wiimm.de/download/wit-v3.04a-r8427-cygwin32.zip > wit.tar.gz
+    else
+      echo "ERROR: Your system's architecture ($arch) does not support Wiimm's ISO Tools. Please refer to wit's website for more information on how to install the tools. https://wit.wiimm.de/"
+    fi
+    export CYGWIN='yes'
   else
     echo "Riibalanced Patcher: Your operating system ($OSTYPE) does not support Wiimm's ISO Tools. Please refer to wit's website for more information on how to install the tools. https://wit.wiimm.de/"
     exit 2;
   fi
   tar -xvf wit.tar.gz
   cd wit-v*/
-  if [[ $(id -u) == 0 ]]; then
-    ./install.sh
-  else 
-    echo "You will now be prompted to enter your password for sudo in order for wit to install."
-    sudo ./install.sh
-  fi 
+  if [[ $CYGWIN ]]; then
+    if [[ $(id -u) == 197108 ]]; then
+      ./install.sh
+    else 
+      echo "ERROR: Please run Cygwin as Administrator to install wit."
+      exit 9
+    fi 
+  else
+    if [[ $(id -u) == 0 ]]; then
+      ./install.sh
+    else 
+      echo "You will now be prompted to enter your password for sudo in order for wit to install."
+      sudo ./install.sh
+    fi 
+  fi
   cd ..
   rm -rf wit-v*/
   # check if wit is installed now
@@ -92,7 +108,7 @@ if [[ ERROR -ne 0 ]]; then
   echo
 
   if [[ ERROR -ne 0 ]]; then 
-    echo "ERROR: wit still does not seem to be installed. Please make sure that '/usr/local/bin' is on your PATH by running 'echo \$PATH'."
+    echo "ERROR: wit still does not seem to be installed. Try running 'sudo ./patch_iso.sh' or use another privledge escalator and make sure that '/usr/local/bin' is on your PATH by running 'echo \$PATH'."
     exit 4
   fi
 fi
