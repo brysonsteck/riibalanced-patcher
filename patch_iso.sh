@@ -87,7 +87,7 @@ if [[ ERROR -ne 0 ]]; then
     powershell -command "Expand-Archive -Force .\wit.zip ."
     cd wit-v*/
     if [[ $(id -u) == 197108 ]]; then
-      ./install.sh
+      ./windows-install.exe
     else 
       echo "ERROR: Please run Cygwin as Administrator to install wit."
       exit 9
