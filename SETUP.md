@@ -1,18 +1,20 @@
 # Setup the Patcher
 
-Click your OS below to jump to the section:
+When you run the patcher, it will make sure you have everything you need before you start, including making sure you have the Riibalanced patch files in the right location. But if you want to be on the safe side before beginning, you can follow this guide.
+
+Click your OS below to jump to their instructions:
 
 * [Linux/BSD](#linuxbsd)
 * [macOS](#macOS)
 
-There are two setup methods for Windows users. Choose one of the two options:
+Windows users can choose one of the two options below for setting up the script:
 
 * [WSL](#windows---wsl) (**RECOMMENDED**, a little tricky to install but easy to remove)
 * [Cygwin](#windows---cygwin) (More advanced, simple to install but difficult to remove)
 
 ## Linux/BSD
 
-No additional setup is required. Simply install `git`, `curl`, and `bash` (which is most likely installed) with your distro's package manager, then clone the repository and run the script:
+Simply install `git`, `curl`, and `bash` (which is most likely installed) with your distro's package manager, then clone the repository and run the script:
 
 ```bash
 git clone https://github.com/brysonsteck/riibalanced-patcher.git
@@ -89,15 +91,15 @@ wsl --unregister Debian
 
 ## Windows - Cygwin
 
-These instructions are accurate as of setup version 2.918. **Use the [WSL guide](#windows---wsl) if you plan on uninstalling the software after using the patcher, as it is easier to uninstall.** **Do not follow these instructions if you have already installed a WSL distro..**
+These instructions are accurate as of setup version 2.918. **Use the [WSL guide](#windows---wsl) if you plan on uninstalling the software after using the patcher, as it is easier to uninstall.** **Do not follow these instructions if you have already installed a WSL distro.**
 
 ### Installing Cygwin
 
 You can skip to [Running the patcher on Cygwin](#Running-the-patcher-on-Cygwin) if you already have Cygwin installed.
 
-To install Cygwin, you need to [download the installer]() from the Cygwin website. Upon downloading, run the program. 
+To install Cygwin, you need to [download the installer]() from the Cygwin website. Upon downloading, run the program as Administrator. 
 
-When it asks to choose a download source, choose "Install from Internet" and click next.
+When it asks to choose a download source, choose "Install from Internet" and click "Next".
 
 You can change the install direcotry if you wish, including installing for all users or just yourself.
 
@@ -112,6 +114,8 @@ A window will appear asking what software you want installed. Use the search bar
 Once everything has downloaded, you can add shortcuts on the desktop or Start Menu if you wish before clicking "Finish".
 
 ### Running the patcher on Cygwin
+
+If you have installed Cygwin already (i.e. not by using my guide above), make sure that `git` and `curl` is installed.
 
 Start Cygwin by using the shortcut(s) you made or by running the batch file where you installed it (probably `C:\cygwin64`), then you can clone the repository and run the script:
 

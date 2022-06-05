@@ -6,20 +6,11 @@ A simple shell script that takes the Riibalanced Patch Files and builds a WBFS i
 
 You need three things before starting:
 
-1. A computer system running:
-  * Linux/BSD with `bash` installed
-  * macOS
-  * ~~Windows with [Cygwin](https://www.cygwin.com/)~~ (Not Implemented) or [WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
+1. A computer system running Linux/BSD, macOS, or Windows.
 2. A Mario Kart Wii image in ISO, WBFS, WDF, WIA, CISO, WBI, or GCZ format. (Obtained legally, of course)
 3. The Riibalanced Patch Archive (This can be downloaded via the Riibalanced Discord Server)
 
-After that, clone the repository and run the script:
-```bash
-git clone https://github.com/brysonsteck/riibalanced-patcher.git
-cd riibalanced-patcher
-./patch_iso.sh
-```
-The script will guide you on what you need to do in order for the pather to work correctly.
+To get the script ready, you can follow my [setup guide](SETUP.md) (recommended for Windows users) or wing it. The script will guide you on what you need to do in order for the patcher to work correctly anyways.
 
 ## Current Issues with the Patcher
 
