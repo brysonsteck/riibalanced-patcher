@@ -84,6 +84,7 @@ if [[ ERROR -ne 0 ]]; then
     exit 2;
   fi
   if [[ $CYGWIN ]]; then
+    chown Administrator:None .
     powershell -command "Expand-Archive -Force .\wit.zip ."
     cd wit-v*/
     if [[ $(id -u) == 197108 ]]; then
@@ -92,13 +93,12 @@ if [[ ERROR -ne 0 ]]; then
       echo "ERROR: Please run Cygwin as Administrator to install wit."
       exit 9
     fi 
+    export PATH="$PATH:/cygdrive/c/Program Files/Wiimm/WIT:/cygdrive/c/Program Files (x86)/Wiimm/WIT"
   else
     tar -xvf wit.tar.gz
     cd wit-v*/
     if [[ $(id -u) == 0 ]]; then
-      chown Administrator:None .
       ./install.sh
-      export PATH="$PATH:/cygdrive/c/Program Files/Wiimm/WIT:/cygdrive/c/Program Files (x86)/Wiimm/WIT"
     else 
       echo "You will now be prompted to enter your password for sudo in order for wit to install."
       sudo ./install.sh
