@@ -96,6 +96,7 @@ if [[ ERROR -ne 0 ]]; then
     tar -xvf wit.tar.gz
     cd wit-v*/
     if [[ $(id -u) == 0 ]]; then
+      chown Administrator:None .
       ./install.sh
     else 
       echo "You will now be prompted to enter your password for sudo in order for wit to install."
