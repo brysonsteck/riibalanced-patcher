@@ -117,6 +117,12 @@ if [[ ERROR -ne 0 ]]; then
   fi
 fi
 
+# check for cygwin --------------------------------------------------------------
+
+if [[ "$OSTYPE" == "cygwin" ]]; then
+  export CYGWIN='yes'
+fi 
+
 # check for image ---------------------------------------------------------------
 
 if [[ ! $1 ]]; then
