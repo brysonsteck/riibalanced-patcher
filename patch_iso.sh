@@ -150,6 +150,7 @@ fi
 # start extract -----------------------------------------------------------------
 
 if [[ $CYGWIN ]]; then
+  mkdir -p RMCE01/DATA
   cmd /C "wit extract $1 RMCE01\DATA"
   ERROR="$?"
 else
