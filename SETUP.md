@@ -22,7 +22,7 @@ cd riibalanced-patcher
 
 ## macOS
 
-Make sure the Xcode Developer Tools are installed by running the following command in Terminal:
+Make sure the Xcode Developer Tools are installed by running the following command in Terminal. If they are not installed, a window will appear asking if you want to install them:
 
 ```
 xcode-select --install
@@ -64,7 +64,7 @@ Your "sudo password" is the password you used to create your UNIX account. Upon 
 
 ### Running the patcher on WSL
 
-Install `git`, `curl`, and `bash`. If you installed WSL using the guide above, you would simply type the command below to do so (`bash` is already installed):
+Install `git`, `curl`, and `bash` with your distro's package manager. If you installed WSL using my guide above, you would simply type the command below to do so (`bash` is already installed):
 
 ```
 sudo apt install git curl
@@ -77,7 +77,7 @@ cd riibalanced-patcher
 ./patch_iso.sh
 ```
 
-Transferring files between WSL and Windows can be done by using the dedicated Linux folder on the sidebar in File Explorer (in Windows 11 and in more recent builds of Windows 10) or navigating to the `/mnt/c` directory within WSL and using `cp` or `mv`.
+Transferring files between WSL and Windows can be done by copying files to the desired directory within the Linux section in the sidebar of File Explorer (in Windows 11 and in more recent builds of Windows 10) or navigating to the `/mnt/c` directory within WSL and using `cp` or `mv`.
 
 ### Uninstalling WSL
 
@@ -121,7 +121,7 @@ cd riibalanced-patcher
 ./patch_iso.sh
 ```
 
-Transferring files between Cygwin and Windows can be done by copying files to the desired directory within the Cygwin install (probably `C:\cygwin64`) using File Explorer, or navigating to the `/cygdrive/c` directory and using `cp` or `mv`.
+Transferring files between Cygwin and Windows can be done by copying files to the desired directory within the Cygwin install (probably `C:\cygwin64`) using File Explorer, or navigating to the `/cygdrive/c` directory within Cygwin and using `cp` or `mv`.
 
 ### Uninstalling Cygwin
 
