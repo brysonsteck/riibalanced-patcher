@@ -98,6 +98,7 @@ if [[ ERROR -ne 0 ]]; then
     if [[ $(id -u) == 0 ]]; then
       chown Administrator:None .
       ./install.sh
+      export PATH='$PATH:/cygdrive/c/Program Files/Wiimm/WIT:/cygdrive/c/Program Files (x86)/Wiimm/WIT'
     else 
       echo "You will now be prompted to enter your password for sudo in order for wit to install."
       sudo ./install.sh
