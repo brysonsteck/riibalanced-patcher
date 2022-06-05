@@ -2,13 +2,13 @@
 
 Click your OS below to jump to the section:
 
-* [Linux/BSD](#Linux/BSD)
+* [Linux/BSD](#linuxbsd)
 * [macOS](#macOS)
 
-There are two setup methods for Windows users:
+There are two setup methods for Windows users. Choose one of the two options:
 
-* [WSL](#WSL) (RECOMMENDED, a little tricky to install but easy to remove)
-* [Cygwin](#Cygwin) (More advanced, simple to install but difficult to remove)
+* [WSL](#windows---wsl) (**RECOMMENDED**, a little tricky to install but easy to remove)
+* [Cygwin](#windows---cygwin) (More advanced, simple to install but difficult to remove)
 
 ## Linux/BSD
 
@@ -42,9 +42,9 @@ cd riibalanced-patcher
 
 ### Installing WSL
 
-You can skip to [Running the patcher on WSL](#Running_the_patcher_on_wsl) if you already have a WSL distro installed.
+You can skip to [Running the patcher on WSL](#Running-the-patcher-on-wsl) if you already have a WSL distro installed. You can alternatively use [Microsoft's documentation](https://docs.microsoft.com/en-us/windows/wsl/install) as a guide to install WSL.
 
-To install WSL, you need to have Windows 10 with build 19041 or higher, or Windows 11. To check your Windows 10 build, run `winver` in Command Prompt. If you cannot/refuse to update to such versions, you can try using the [Cygwin](#Cygwin) method to run the patcher.
+To install WSL, you need to have Windows 10 with build 19041 or higher, or Windows 11. To check your Windows 10 build, run `winver` in Command Prompt. If you cannot/refuse to update to such versions, you can try using the [Cygwin](#windows---cygwin) method to run the patcher.
 
 Open a Command Prompt as Administrator and type:
 
@@ -77,7 +77,7 @@ cd riibalanced-patcher
 ./patch_iso.sh
 ```
 
-Transferring files between WSL and Windows can be done by using File Explorer (in Windows 11 and in more recent builds of Windows 10) or navigating to the `/mnt/c` directory within WSL and using `cp` or `mv`.
+Transferring files between WSL and Windows can be done by using the dedicated Linux folder on the sidebar in File Explorer (in Windows 11 and in more recent builds of Windows 10) or navigating to the `/mnt/c` directory within WSL and using `cp` or `mv`.
 
 ### Uninstalling WSL
 
@@ -89,11 +89,11 @@ wsl --unregister Debian
 
 ## Windows - Cygwin
 
+These instructions are accurate as of setup version 2.918. **Use the [WSL guide](#windows---wsl) if you plan on uninstalling the software after using the patcher, as it is easier to uninstall.** **Do not follow these instructions if you have already installed a WSL distro..**
+
 ### Installing Cygwin
 
-These instructions are accurate as of setup version 2.918. **Do not follow these instructions if you have installed a WSL distro.**
-
-You can skip to [Running the patcher on Cygwin](#Running_the_patcher_on_Cygwin) if you already have Cygwin installed.
+You can skip to [Running the patcher on Cygwin](#Running-the-patcher-on-Cygwin) if you already have Cygwin installed.
 
 To install Cygwin, you need to [download the installer]() from the Cygwin website. Upon downloading, run the program. 
 
@@ -121,7 +121,7 @@ cd riibalanced-patcher
 ./patch_iso.sh
 ```
 
-Transferring files between Cygwin and Windows can be done by copying files to the desired directory within the Cygwin install (probably `C:\cygwin64`).
+Transferring files between Cygwin and Windows can be done by copying files to the desired directory within the Cygwin install (probably `C:\cygwin64`) using File Explorer, or navigating to the `/cygdrive/c` directory and using `cp` or `mv`.
 
 ### Uninstalling Cygwin
 
