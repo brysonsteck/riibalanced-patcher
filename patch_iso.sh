@@ -72,9 +72,9 @@ if [[ ERROR -ne 0 ]]; then
     curl https://wit.wiimm.de/download/wit-v3.04a-r8427-mac.tar.gz > wit.tar.gz
   elif [[ "$OSTYPE" == "cygwin" ]]; then
     if [[ $arch == x86_64* ]]; then
-      curl https://wit.wiimm.de/download/wit-v3.04a-r8427-cygwin64.zip > wit.tar.gz
+      curl https://wit.wiimm.de/download/wit-v3.04a-r8427-cygwin64.zip > wit.zip
     elif [[ $arch == i*86 ]]; then
-      curl https://wit.wiimm.de/download/wit-v3.04a-r8427-cygwin32.zip > wit.tar.gz
+      curl https://wit.wiimm.de/download/wit-v3.04a-r8427-cygwin32.zip > wit.zip
     else
       echo "ERROR: Your system's architecture ($arch) does not support Wiimm's ISO Tools. Please refer to wit's website for more information on how to install the tools. https://wit.wiimm.de/"
     fi
@@ -83,9 +83,9 @@ if [[ ERROR -ne 0 ]]; then
     echo "Riibalanced Patcher: Your operating system ($OSTYPE) does not support Wiimm's ISO Tools. Please refer to wit's website for more information on how to install the tools. https://wit.wiimm.de/"
     exit 2;
   fi
-  tar -xvf wit.tar.gz
-  cd wit-v*/
   if [[ $CYGWIN ]]; then
+    powershell -command "Expand-Archive -Force .\wit.zip ."
+    cd wit-v*/
     if [[ $(id -u) == 197108 ]]; then
       ./install.sh
     else 
@@ -93,6 +93,8 @@ if [[ ERROR -ne 0 ]]; then
       exit 9
     fi 
   else
+    tar -xvf wit.tar.gz
+    cd wit-v*/
     if [[ $(id -u) == 0 ]]; then
       ./install.sh
     else 
