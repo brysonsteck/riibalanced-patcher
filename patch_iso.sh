@@ -328,7 +328,7 @@ fi
 # build -------------------------------------------------------------------------
 
 if [[ $CYGWIN ]]; then
-  cmd /C wit mix RMCE01\  -B --dest riibalanced.wbfs
+  cmd /C "wit mix .\RMCE01 -B --dest riibalanced.wbfs"
   cmd /C wit edit riibalanced.wbfs --name MarioKartRiibalanced
 else 
   wit mix RMCE01/ -B --dest riibalanced.wbfs
