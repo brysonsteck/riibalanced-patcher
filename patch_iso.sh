@@ -150,7 +150,7 @@ fi
 # start extract -----------------------------------------------------------------
 
 if [[ $CYGWIN ]]; then
-  cmd /C wit extract $1 RMCE01
+  cmd /C "wit extract $1 RMCE01\DATA"
   ERROR="$?"
 else
   wit extract $1 RMCE01
