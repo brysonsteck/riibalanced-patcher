@@ -143,8 +143,13 @@ fi
 
 # start extract -----------------------------------------------------------------
 
-wit extract $1 RMCE01
-ERROR="$?"
+if [[ $CYGWIN ]]; then
+  cmd /C wit extract $1 RMCE01
+  ERROR="$?"
+else
+  wit extract $1 RMCE01
+  ERROR="$?"
+fi
 
 if [[ ERROR -ne 0 ]]; then 
   echo "ERROR: wit has returned non-zero exit code $ERROR. Please check that your disc image is authentic and valid."
@@ -315,8 +320,13 @@ fi
 
 # build -------------------------------------------------------------------------
 
-wit mix RMCE01/ -B --dest riibalanced.wbfs
-wit edit riibalanced.wbfs --name MarioKartRiibalanced
+if [[ $CYGWIN ]]; then
+  cmd /C wit mix RMCE01\  -B --dest riibalanced.wbfs
+  cmd /C wit edit riibalanced.wbfs --name MarioKartRiibalanced
+else 
+  wit mix RMCE01/ -B --dest riibalanced.wbfs
+  wit edit riibalanced.wbfs --name MarioKartRiibalanced
+fi 
 rm -rf RMCE01/
 
 echo "The patch is now complete. The resulting file is 'riibalanced.wbfs'. Enjoy!"
